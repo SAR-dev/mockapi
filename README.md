@@ -1,2 +1,3 @@
-# mockapi
- 
+Run this command
+
+    npm start
