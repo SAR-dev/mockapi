@@ -2,8 +2,9 @@ var falso = require('@ngneat/falso');
 var fs = require('fs');
 
 var database = { users: [] };
+var limit = 10000;
 
-for (var i = 1; i <= 100; i++) {
+for (var i = 1; i <= limit; i++) {
     database.users.push({
         userId: i,
         email: falso.randEmail(),
