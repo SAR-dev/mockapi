@@ -2,7 +2,7 @@ var falso = require('@ngneat/falso');
 var fs = require('fs');
 
 var database = { users: [] };
-var limit = 10000;
+var limit = 1000;
 
 for (var i = 1; i <= limit; i++) {
     database.users.push({
@@ -18,6 +18,7 @@ for (var i = 1; i <= limit; i++) {
         gender: falso.randGender(),
         phoneNumber: falso.randPhoneNumber({ countryCode: 'JP' }),
         prefectureCode: falso.randNumber({ min: 1, max: 47 }),
+        salonCode: falso.randNumber({ min: 1000, max: 10000 }),
         prefectureName: falso.randCity(),
         zipCode: falso.randZipCode(),
         address1: falso.randStreetAddress(),
@@ -30,7 +31,7 @@ for (var i = 1; i <= limit; i++) {
 }
 
 var json = JSON.stringify(database);
-fs.writeFile('api/database.json', json, 'utf8', (err) => {
+fs.writeFile('db/database.json', json, 'utf8', (err) => {
     if (err) { console.error(err); return; };
 
 });
